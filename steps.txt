@@ -1,0 +1,5 @@
+1) npm install bootstrap@next
+2) ng add ngx-bootstrap
+3) npm install ngx-alerts --save
+4) npm install ngx-spinner --save
+5) ng add @fortawesome/angular-fontawesome
