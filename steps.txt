@@ -3,3 +3,36 @@
 3) npm install ngx-alerts --save
 4) npm install ngx-spinner --save
 5) ng add @fortawesome/angular-fontawesome
+for develempment
+1) npm install lite-server --save-dev
+
+
+
+to check app bundle size
+
+1) https://coryrylan.com/blog/analyzing-bundle-size-with-the-angular-cli-and-webpack
+globally install webpack-bundle-analyzer using
+
+npm install webpack-bundle-analyzer -g
+
+run ng build --prod --stats-json
+now run
+webpack-bundle-analyzer dist/libraryOppCoder/stats.json
+
+or for using it frequently add it in package.json file to run just npm run webpack
+
+"webpack": "webpack-bundle-analyzer dist/libraryOppCoder/stats.json"
+
+
+
+2) https://coryrylan.com/blog/measuring-angular-performance-with-source-map-explorer
+
+npm installsource-map-explorer
+
+now run
+
+ng build --prod --source-map
+
+or for using it frequently add it in package.json file to run just npm run sourcemap
+
+"sourcemap": "source-map-explorer dist/libraryOppCoder/**/*.js",

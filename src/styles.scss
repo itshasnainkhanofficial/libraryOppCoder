@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+
+@import "src/assets/styles/variables";
+
+
+
+$custom-colors: (
+  "navbar": $navbar
+);
+
+
+// Required
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// $theme-colors: map-merge($theme-colors, $custom-colors);
+
+
+
+
+
