@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faSignInAlt , faSignOutAlt , faHome} from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt , faSignOutAlt , faHome , faCartPlus} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   faSignIn = faSignInAlt;
   faSignOut = faSignOutAlt;
   faHome = faHome;
-
+  faCart = faCartPlus;
   
   constructor() { }
 
