@@ -6,7 +6,10 @@
 for develempment
 1) npm install lite-server --save-dev
 
-
+for backend
+1) npm install express cors mongoose dotenv
+dev dependancey 
+npm install nodemon
 
 to check app bundle size
 
