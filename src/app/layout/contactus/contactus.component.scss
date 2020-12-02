@@ -1,0 +1,13 @@
+
+@import "../../../assets/styles/variables";
+
+$primary : $navbar ;
+
+button{
+
+    color: $navbar;
+    &:hover{
+        color : #fff;
+    }
+
+}

@@ -1,22 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { faSignInAlt , faSignOutAlt , faHome} from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title : string = 'libraryOppCoder';
-  
-  faSignIn = faSignInAlt;
-  faSignOut = faSignOutAlt;
-  faHome = faHome;
 
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
 
-  }
-  
 }

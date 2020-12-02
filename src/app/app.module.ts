@@ -6,17 +6,24 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ContactusComponent } from './layout/contactus/contactus.component';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactusComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
