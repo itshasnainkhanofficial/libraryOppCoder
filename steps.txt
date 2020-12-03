@@ -12,6 +12,45 @@ dev dependancey
 npm install nodemon
 npm install -D concurrently
 
+Generate store at root level
+1) ng add @ngrx/store@latest
+2) redux dev tool 
+3) ng add @ngrx/store-devtools@latest
+4) ng add @ngrx/schematics@latest
+ng generate store store --module=app.module.ts --root=true --statePath=store --stateInterface=AppState
+
+Generate Action File 
+ng generate action store/actions/customer-support --skipTests=true --api=true
+
+Generate Reducer File
+ng generate reducer store/reducers/customer-support --api=true --skipTests=true --reducers=../index.ts
+
+Generate Selector Command
+ng generate selector store/selectors/customer-support --skipTests=true
+
+Generate effect file
+ng generate effect store/effects/customer-support --module=app.module.ts --root=true --api=true --skipTests=true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 to check app bundle size
 
 1) https://coryrylan.com/blog/analyzing-bundle-size-with-the-angular-cli-and-webpack

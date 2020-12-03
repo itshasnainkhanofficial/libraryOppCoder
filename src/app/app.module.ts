@@ -10,7 +10,11 @@ import { ContactusComponent } from './layout/contactus/contactus.component';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HeaderComponent } from './layout/header/header.component';
-
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { reducers, metaReducers } from './store';
+import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,12 @@ import { HeaderComponent } from './layout/header/header.component';
     BrowserAnimationsModule,
     NgxSpinnerModule,
     FontAwesomeModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    FormsModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

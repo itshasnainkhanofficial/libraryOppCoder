@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "libraryOppCoder"
+  "defaultProject": "libraryOppCoder",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
