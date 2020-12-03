@@ -21,5 +21,21 @@ router.post("/addbook", (req, res, next) => {
 
 });
 
+router.get("/getbooks" , async (req, res , next) => {
 
+    await bookModel.find((err, result) =>{
+        if (!err) {
+            const allBooks = result;
+            res.status(200).json(allBooks);
+        }
+        
+        else {
+            err.message = "Failed to load books"
+            next(err);
+        }
+    });
+    
+    
+
+})
 module.exports = router;
