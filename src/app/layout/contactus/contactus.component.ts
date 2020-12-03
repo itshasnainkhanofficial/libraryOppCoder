@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { LibraryState } from 'src/app/store';
 import { sendingCustomerSupportMessage } from 'src/app/store/actions/customer-support.actions';
 import { CustomerMessage } from 'src/app/shared/models/customer-message';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-contactus',
@@ -20,19 +21,30 @@ export class ContactusComponent implements AfterViewInit {
     }
     modalRef!: BsModalRef;
 
-  constructor(private modalService: BsModalService , private store : Store<LibraryState>) {}
+  constructor(
+    private modalService: BsModalService, 
+    private store : Store<LibraryState>,
+    private apiService : ApiService
+    
+    ) {}
+    
     openModal(template: TemplateRef<any>) {
       this.modalRef = this.modalService.show(template);
     }
 
-    
-    abc = {
-      name: "hasnain",email: "asdf", message: "af"
-    }
 
     onSubmit(data : CustomerMessage){
-      this.store.dispatch(sendingCustomerSupportMessage({data : data}))
+      this.apiService.sendMsg(data).subscribe(res => {
+        this.store.dispatch(sendingCustomerSupportMessage({data : res}))
+      }
+      ,
+      err => {
+        console.log(err);
+      }
+      );
+
     }
+
 
 
 }
