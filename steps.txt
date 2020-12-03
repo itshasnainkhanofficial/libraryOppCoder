@@ -79,3 +79,10 @@ ng build --prod --source-map
 or for using it frequently add it in package.json file to run just npm run sourcemap
 
 "sourcemap": "source-map-explorer dist/libraryOppCoder/**/*.js",
+
+
+1 mobule completed 
+task i done
+1) sending msg to database with ngrx
+2) having error handling on backend
+3) its just simple action without reducer
