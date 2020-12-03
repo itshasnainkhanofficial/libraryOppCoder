@@ -10,6 +10,7 @@ for backend
 1) npm install express cors mongoose dotenv
 dev dependancey 
 npm install nodemon
+npm install -D concurrently
 
 to check app bundle size
 
