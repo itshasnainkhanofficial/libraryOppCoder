@@ -3,6 +3,7 @@
 3) npm install ngx-alerts --save
 4) npm install ngx-spinner --save
 5) ng add @fortawesome/angular-fontawesome
+6) npm install nodemailer
 for develempment
 1) npm install lite-server --save-dev
 
@@ -86,3 +87,6 @@ task i done
 1) sending msg to database with ngrx
 2) having error handling on backend
 3) its just simple action without reducer
+
+2 module competed
+1) sending mail to email address
