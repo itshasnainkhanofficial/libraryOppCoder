@@ -4,16 +4,16 @@ const messageModal = require("../models/msg");
 const nodemailer = require("nodemailer");
 
 
-let transporter = nodemailer.createTransport({
-    host: process.env.HOST,
-    port: process.env.HOST_PORT,
-    secure: process.env.HOST_SECURITY, 
-    auth: {
-      user: process.env.ADD, 
-      pass: process.env.PASS, 
-    },
+// let transporter = nodemailer.createTransport({
+//     host: process.env.HOST,
+//     port: process.env.HOST_PORT,
+//     secure: process.env.HOST_SECURITY, 
+//     auth: {
+//       user: process.env.ADD, 
+//       pass: process.env.PASS, 
+//     },
 
-  });
+//   });
 
 
 
@@ -25,29 +25,29 @@ router.post("/sendMsg", (req, res, next) => {
     const mail = new messageModal({ name: reqMsg.name, email: reqMsg.email , message : reqMsg.message });
 
     mail.save().then((data) => {
-        // res.json({ data })
-       transporter.sendMail({
-           subject: data.name,
-            from: data.email,
-            to: process.env.ADD,
-            html: data.message
-          }
-          , (err , data) => {
+        res.json( data )
+      //  transporter.sendMail({
+      //      subject: data.name,
+      //       from: data.email,
+      //       to: process.env.ADD,
+      //       html: data.message
+      //     }
+      //     , (err , data) => {
 
-            if(err) {
+      //       if(err) {
         
-              res.json({status: 'msg sending fail'})
-                console.log("fail")
-            } 
-            else {
+      //         res.json({status: 'msg sending fail'})
+      //           console.log("fail")
+      //       } 
+      //       else {
         
-              res.json({status: 'msg success' , data : data})
-                console.log("passed")
-            }
+      //         res.json( data)
+      //           console.log("passed")
+      //       }
         
-          }
+      //     }
           
-          )
+      //     )
 
     }).catch((err) => {
         err.whereError = "Error occured in saving msg";
