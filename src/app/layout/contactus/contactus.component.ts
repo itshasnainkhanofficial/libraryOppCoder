@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Store } from '@ngrx/store';
@@ -12,13 +12,20 @@ import { ApiService } from 'src/app/services/api.service';
   templateUrl: './contactus.component.html',
   styleUrls: ['./contactus.component.scss']
 })
-export class ContactusComponent implements AfterViewInit {
+export class ContactusComponent implements AfterViewInit  {
 
   phone = faPhone;
 
-    ngAfterViewInit(): void {
+  @ViewChild("contactModal") ContactModal!: TemplateRef<any>;
+
+  ngAfterViewInit(): void {
+      
+        this.modalRef = this.modalService.show(this.ContactModal);
 
     }
+
+    
+    
     modalRef!: BsModalRef;
 
   constructor(
