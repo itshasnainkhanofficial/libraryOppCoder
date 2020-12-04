@@ -23,7 +23,12 @@
           <label for="exampleInputMessage" class="form-label" >Message</label>
           <input type="text" name="message" class="form-control" id="exampleInputMessage" ngModel>
         </div>
-        
+        <div *ngIf="name$ | async">
+
+          <div class="text-primary mb-2"  >thanks {{ name$ | async }}</div>
+          
+        </div>
+
         <button type="submit" class="btn btn-outline-navbar" >Submit</button>
       </form>
   </div>
