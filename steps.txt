@@ -92,3 +92,5 @@ task i done
 1) sending mail to email address
 3 module competed
 1) sending mail to email address and getting his/her name back on form by using selector
+3 module completed 
+effects working fine
