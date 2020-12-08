@@ -20,3 +20,10 @@ export const sendingCustomerSupportMessage = createAction(
   '[CustomerSupport component] sending CustomerSupport message',
   props<{ data: CustomerMessage }>()
 );
+
+
+export const sendMsgStatus = createAction(
+  '[CustomerSupport effect] send CustomerSupport message status',
+  props<{ isSentSuccess: boolean }>()
+);
+

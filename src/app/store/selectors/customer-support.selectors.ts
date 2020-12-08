@@ -5,7 +5,22 @@ import { customerSupportFeatureKey, State } from '../reducers/customer-support.r
 export const selectCustomerSupportFeature = createFeatureSelector<State>(
     customerSupportFeatureKey
 );
-export const selectFeatureName = createSelector(
+// export const selectFeatureName = createSelector(
+//     selectCustomerSupportFeature,
+//     (state: State) => state.name,
+//   );
+
+export interface CustomerSupportViewModel{
+    name : string ,
+    isSentSuccess : boolean | null
+}
+
+export const selectCustomerSupportModel = createSelector(
     selectCustomerSupportFeature,
-    (state: State) => state.name,
-  );
+    (state: State) : CustomerSupportViewModel => {
+        return {
+           name : state.name,
+           isSentSuccess : state.isSentSuccess
+        }
+    }
+);

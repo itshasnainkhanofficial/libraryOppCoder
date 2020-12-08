@@ -7,7 +7,9 @@ import { sendingCustomerSupportMessage } from 'src/app/store/actions/customer-su
 import { CustomerMessage } from 'src/app/shared/models/customer-message';
 import { ApiService } from 'src/app/services/api.service';
 import { Observable } from 'rxjs';
-import { selectFeatureName } from 'src/app/store/selectors/customer-support.selectors';
+import { CustomerSupportViewModel, selectCustomerSupportModel, 
+  // selectFeatureName
+ } from 'src/app/store/selectors/customer-support.selectors';
 
 @Component({
   selector: 'app-contactus',
@@ -18,13 +20,15 @@ export class ContactusComponent implements AfterViewInit , OnInit  {
 
   phone = faPhone;
 
-  name$!: Observable<string>;
+  // name$!: Observable<string>;
+  vm$!: Observable<CustomerSupportViewModel>;
 
   @ViewChild("contactModal") ContactModal!: TemplateRef<any>;
 
   ngOnInit(): void {
 
-    this.name$ = this.store.pipe(select(selectFeatureName))
+    // this.name$ = this.store.pipe(select(selectFeatureName))
+    this.vm$ = this.store.pipe(select(selectCustomerSupportModel))
 
   }
   ngAfterViewInit(): void {

@@ -1,19 +1,20 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { sendingCustomerSupportMessage } from '../actions/customer-support.actions';
+import { CustomerMessage } from 'src/app/shared/models/customer-message';
+import { sendingCustomerSupportMessage, 
+  sendMsgStatus 
+} from '../actions/customer-support.actions';
 
 
 export const customerSupportFeatureKey = 'customerSupport';
 
 export interface State {
   name : string ,
-  email : string , 
-  message : string
+  isSentSuccess : boolean | null
 }
 
 export const initialState: State = {
   name : "",
-  email : "",
-  message : ""
+  isSentSuccess : null
 };
 
 
@@ -22,9 +23,15 @@ export const reducer = createReducer(
   on(sendingCustomerSupportMessage , (state , action) => {
     return {
       ...state , 
-      name : action.data.name,
-      email : action.data.email,
-      message : action.data.message
+      name : action.data.name
+    }
+  }),
+
+  on(sendMsgStatus , (state , action) => {
+    return {
+      ...state ,
+      isSentSuccess : action.isSentSuccess,
+      
     }
   })
 );

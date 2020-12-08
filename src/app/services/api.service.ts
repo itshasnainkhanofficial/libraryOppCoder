@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CustomerMessage } from '../shared/models/customer-message';
 import { HttpService } from './http.service';
 
@@ -18,7 +18,13 @@ export class ApiService {
   }
   
   sendMsg(data : CustomerMessage): Observable<any> {
+
     return this.httpService.postMethod('/sendMsg' , data );
+    
+  }
+
+  confirmfunction(form : CustomerMessage){
+    return form.name ? of(true) : of(false)
   }
 
   //for books

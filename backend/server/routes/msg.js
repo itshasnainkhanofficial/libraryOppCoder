@@ -4,13 +4,23 @@ const messageModal = require("../models/msg");
 const nodemailer = require("nodemailer");
 
 
+// let transporter = nodemailer.createTransport({
+//     host: process.env.HOST,
+//     port: process.env.HOST_PORT,
+//     secure: process.env.HOST_SECURITY, 
+//     auth: {
+//       user: process.env.ADD, 
+//       pass: process.env.PASS, 
+//     },
+
+//   });
 let transporter = nodemailer.createTransport({
     host: process.env.HOST,
     port: process.env.HOST_PORT,
-    secure: process.env.HOST_SECURITY, 
+    secure : false,
     auth: {
       user: process.env.ADD, 
-      pass: process.env.PASS, 
+      pass: process.env.PASS,
     },
 
   });
@@ -25,6 +35,8 @@ router.post("/sendMsg", (req, res, next) => {
     const mail = new messageModal({ name: reqMsg.name, email: reqMsg.email , message : reqMsg.message });
 
     mail.save().then((savedDataBase) => {
+      // res.json(savedDataBase)
+      console.log(savedDataBase)
        transporter.sendMail({
            subject: savedDataBase.name,
             from: savedDataBase.email,
@@ -36,7 +48,7 @@ router.post("/sendMsg", (req, res, next) => {
             if(err) {
         
               res.json('msg sending fail')
-                console.log("fail")
+                console.log("fail" , err)
             } 
             else {
         

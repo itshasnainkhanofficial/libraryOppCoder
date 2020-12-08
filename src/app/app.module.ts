@@ -16,6 +16,8 @@ import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './store';
 import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { EffectsModule } from '@ngrx/effects';
+import { CustomerSupportEffects } from './store/effects/customer-support.effects';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { HttpClientModule } from "@angular/common/http";
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    EffectsModule.forRoot([CustomerSupportEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

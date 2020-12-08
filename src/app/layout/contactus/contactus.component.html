@@ -1,10 +1,10 @@
 <button type="button" class="btn btn-outline-navbar btn-lg rounded-circle" (click)="openModal(contactModal)"><fa-icon [icon]="phone"></fa-icon></button>
 
-<ng-template #contactModal>
+<ng-template #contactModal >
   <div class="modal-header">
     <h4 class="modal-title pull-left">Contact us</h4>
     <button type="button" class="close pull-right btn" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
+      <span aria-hidden="true" class="btn-close"></span>
     </button>
   </div>
   <div class="modal-body">
@@ -12,22 +12,34 @@
         <div class="mb-3">
           <label for="exampleInputname" class="form-label">Name</label>
           <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" ngModel>
-          <div id="nameHelp" class="form-text">We'll never share your name with anyone else.</div>
+          <div id="nameHelp" class="form-text text-danger">We'll never share your name with anyone else.</div>
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
           <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ngModel>
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div id="emailHelp" class="form-text text-danger">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
           <label for="exampleInputMessage" class="form-label" >Message</label>
           <input type="text" name="message" class="form-control" id="exampleInputMessage" ngModel>
-        </div>
-        <div *ngIf="name$ | async">
+          <div id="msgHelp" class="form-text text-danger">We'll never share your msg with anyone else.</div>
 
-          <div class="text-primary mb-2"  >thanks {{ name$ | async }}</div>
-          
         </div>
+        <ng-container *ngIf="vm$ | async as vm">
+
+       
+          <ng-container *ngIf="vm.isSentSuccess != null">
+            <div class="alert alert-dismissible alert-success" *ngIf="vm.isSentSuccess">
+              <strong>We got your message {{vm.name}}!</strong> We will be in touch.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-dismissible alert-danger" *ngIf="!vm.isSentSuccess">
+              <strong>Oh snap!</strong> Unable to send message. Please contact us at our customer support line at 123-456-7890.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </ng-container>
+          
+        </ng-container>
 
         <button type="submit" class="btn btn-outline-navbar" >Submit</button>
       </form>
