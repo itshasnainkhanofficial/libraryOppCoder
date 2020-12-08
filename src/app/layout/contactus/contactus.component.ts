@@ -3,7 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { select, Store } from '@ngrx/store';
 import { LibraryState } from 'src/app/store';
-import { sendingCustomerSupportMessage } from 'src/app/store/actions/customer-support.actions';
+import { clearForm, sendingCustomerSupportMessage } from 'src/app/store/actions/customer-support.actions';
 import { CustomerMessage } from 'src/app/shared/models/customer-message';
 import { ApiService } from 'src/app/services/api.service';
 import { Observable } from 'rxjs';
@@ -63,6 +63,10 @@ export class ContactusComponent implements AfterViewInit , OnInit  {
       }
       );
 
+    }
+
+    clearForm(){
+      this.store.dispatch(clearForm())
     }
 
 

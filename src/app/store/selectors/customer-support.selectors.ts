@@ -11,7 +11,7 @@ export const selectCustomerSupportFeature = createFeatureSelector<State>(
 //   );
 
 export interface CustomerSupportViewModel{
-    name : string ,
+    name : string | null,
     isSentSuccess : boolean | null
 }
 
