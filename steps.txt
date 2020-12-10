@@ -32,6 +32,8 @@ ng generate selector store/selectors/customer-support --skipTests=true
 Generate effect file
 ng generate effect store/effects/customer-support --module=app.module.ts --root=true --api=true --skipTests=true
 
+Generate feature auth
+ng generate feature store/auth --group=true --reducers=./index.ts --module=modules/auth/auth.module.ts --api=true --skipTests=true --dray-run
 
 
 

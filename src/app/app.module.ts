@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from '@ngrx/effects';
 import { CustomerSupportEffects } from './store/effects/customer-support.effects';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CustomerSupportEffects } from './store/effects/customer-support.effects
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([CustomerSupportEffects])
+    EffectsModule.forRoot([CustomerSupportEffects]),
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
