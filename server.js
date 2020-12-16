@@ -3,7 +3,14 @@ const cors = require("cors");
 const morgan = require("morgan");
 const app = express();
 require('dotenv').config();
-const port = process.env.PORT | 3000;
+const port = process.env.PORT | 8080;
+
+app.use(express.static('./dist/libraryOppCoder'));
+app.get('/*', function(req, res) {
+  res.sendFile('index.html', {root: 'dist/libraryOppCoder/'}
+);
+});
+
 //adding mongodb connection
 require("./backend/database/db");
 
