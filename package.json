@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start1": "ng serve -o",
+    "start" : "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,7 +12,10 @@
     "server": "nodemon server.js",
     "sourcemap": "source-map-explorer dist/libraryOppCoder/**/*.js",
     "webpack": "webpack-bundle-analyzer dist/libraryOppCoder/stats.json",
-    "dev": "concurrently \"npm run server\" \"npm run start\""
+    "dev": "concurrently \"npm run server\" \"npm run start1\"",
+    "litedev": "lite-server",
+    "postinstall": "ng build --output-path dist"
+
   },
   "private": true,
   "dependencies": {
@@ -43,7 +47,9 @@
     "rxjs": "~6.6.0",
     "source-map-explorer": "^2.5.1",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@angular/cli": "~11.0.1",
+    "@angular/compiler-cli": "~11.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.1",

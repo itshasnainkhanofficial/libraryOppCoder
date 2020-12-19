@@ -3,13 +3,19 @@ const cors = require("cors");
 const morgan = require("morgan");
 const app = express();
 require('dotenv').config();
+const path = require("path");
+
 const port = process.env.PORT | 8080;
 
-app.use(express.static('./dist/libraryOppCoder'));
-app.get('/*', function(req, res) {
-  res.sendFile('index.html', {root: 'dist/libraryOppCoder/'}
-);
-});
+
+
+
+
+
+// Create link to Angular build directory
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 
 //adding mongodb connection
 require("./backend/database/db");
