@@ -66,7 +66,7 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   console.log(`library running at http://localhost:${port}`)
 })
 
