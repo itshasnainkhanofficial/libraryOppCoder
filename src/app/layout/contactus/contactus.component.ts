@@ -54,6 +54,7 @@ export class ContactusComponent implements AfterViewInit , OnInit  {
 
 
     onSubmit(data : CustomerMessage){
+    
       this.apiService.sendMsg(data).subscribe(res => {
         this.store.dispatch(sendingCustomerSupportMessage({data : res}))
       }

@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class HttpService {
   // https://libraryemail.herokuapp.com/
   // private baseUrl = 'http://localhost:3000/api';
-  private baseUrl = '/api';
+  private baseUrl = 'http://localhost:3000/api';
 
   constructor(private httpClient : HttpClient , private errHandlerService : ErrorhandlingService) { }
 
