@@ -3,7 +3,7 @@ const mongoose  = require('mongoose');
 
 //using promise
 
-mongoose.connect("mongodb+srv://hasnainadmin:hasnainkhan@cluster0.xa0yd.mongodb.net/LibraryManagement?retryWrites=true&w=majority" , { useNewUrlParser : true , useUnifiedTopology: true })
+mongoose.connect(process.env.DB_URI , { useNewUrlParser : true , useUnifiedTopology: true })
 .then((db) => console.log("database connected succesfully"))
 .catch((err) => { 
 console.log("mongodb database connection failed" , err);

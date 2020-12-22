@@ -7,11 +7,6 @@ const path = require("path");
 
 const port = process.env.PORT | 8080;
 
-
-
-
-
-
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
