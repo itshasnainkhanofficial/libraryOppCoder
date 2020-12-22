@@ -9,9 +9,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpService {
-  // https://libraryemail.herokuapp.com/
-  // private baseUrl = 'http://localhost:3000/api';
-  private baseUrl = 'http://localhost:8080/api';
+  // for online 
+  private baseUrl = 'api';
+
+
+  // for local 
+  // private baseUrl = 'http://localhost:8080/api';
 
   constructor(private httpClient : HttpClient , private errHandlerService : ErrorhandlingService) { }
 
