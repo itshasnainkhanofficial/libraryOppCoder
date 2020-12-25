@@ -10,11 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
   // for online 
-  private baseUrl = 'api';
+  // private baseUrl = 'api';
 
 
   // for local 
-  // private baseUrl = 'http://localhost:8080/api';
+  private baseUrl = 'http://localhost:8080/api';
 
   constructor(private httpClient : HttpClient , private errHandlerService : ErrorhandlingService) { }
 

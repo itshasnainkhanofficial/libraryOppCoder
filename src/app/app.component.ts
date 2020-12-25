@@ -1,5 +1,5 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Component } from '@angular/core';
+import { faSignInAlt , faSignOutAlt , faUserCircle} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,9 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  faSignIn = faSignInAlt;
+  faSignOut = faSignOutAlt;
+  userCircle = faUserCircle;
   title : string = 'libraryOppCoder';
 
 

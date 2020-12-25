@@ -33,7 +33,7 @@ export class ContactusComponent implements AfterViewInit , OnInit  {
   }
   ngAfterViewInit(): void {
       
-        this.modalRef = this.modalService.show(this.ContactModal);
+        // this.modalRef = this.modalService.show(this.ContactModal);
 
     }
 

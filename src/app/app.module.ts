@@ -19,6 +19,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from '@ngrx/effects';
 import { CustomerSupportEffects } from './store/effects/customer-support.effects';
 import { AuthModule } from './modules/auth/auth.module';
+import { ShareModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AuthModule } from './modules/auth/auth.module';
     ReactiveFormsModule,
     HttpClientModule,
     EffectsModule.forRoot([CustomerSupportEffects]),
-    AuthModule
+    AuthModule,
+    ShareModule
   ],
   providers: [],
   bootstrap: [AppComponent]
