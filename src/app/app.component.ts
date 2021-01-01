@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { faSignInAlt , faSignOutAlt , faUserCircle} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +6,8 @@ import { faSignInAlt , faSignOutAlt , faUserCircle} from '@fortawesome/free-soli
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  faSignIn = faSignInAlt;
-  faSignOut = faSignOutAlt;
-  userCircle = faUserCircle;
+
+
   title : string = 'libraryOppCoder';
 
 

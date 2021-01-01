@@ -1,0 +1,34 @@
+@import "../../../../styles.scss";
+
+
+ul{
+    list-style: none;
+    margin: 0;
+    li{
+        padding: 0.3rem;
+        a{
+            color: $white ;
+            text-decoration: none;
+            &:hover{
+                color : $primary
+            }
+            &:active{
+                color: $primaryDark;
+            }
+            span{
+                color: $dark;
+                &:hover{
+                    color: $navbar;
+                }
+                &:active{
+                    color: $topbar;
+                }
+               
+            }
+            
+        }
+        .active{
+            color:$primary
+          }
+    }
+}

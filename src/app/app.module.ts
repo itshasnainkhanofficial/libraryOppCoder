@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ContactusComponent } from './layout/contactus/contactus.component';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -14,37 +13,39 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './store';
-import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
+import { FormsModule  } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from '@ngrx/effects';
 import { CustomerSupportEffects } from './store/effects/customer-support.effects';
 import { AuthModule } from './modules/auth/auth.module';
 import { ShareModule } from './shared/shared.module';
+import { ContainerComponent } from './container/container/container.component';
+import { RootcheckingpageComponent } from './rootcheckingpage/rootcheckingpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactusComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContainerComponent,
+    RootcheckingpageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-    FontAwesomeModule,
     ModalModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     EffectsModule.forRoot([CustomerSupportEffects]),
     AuthModule,
     ShareModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

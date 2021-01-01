@@ -1,38 +1,9 @@
-@import "../styles.scss";
-
 app-contactus{
     position: absolute;
     bottom: 0;
     right: 0;
     margin: 1rem;
 
-}
-ul{
-    list-style: none;
-    margin: 0;
-    li{
-        padding: 0.3rem;
-        a{
-            color: $white ;
-            text-decoration: none;
-            &:hover{
-                color : $primary
-            }
-            &:active{
-                color: $primaryDark;
-            }
-            span{
-                color: $dark;
-                &:hover{
-                    color: $navbar;
-                }
-                &:active{
-                    color: $topbar;
-                }
-               
-            }
-        }
-    }
 }
 
 
