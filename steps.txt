@@ -37,7 +37,14 @@ ng generate feature store/auth --group=true --reducers=./index.ts --module=modul
 
 
 
+generate spinner effect
+ng g effect store/effects/spinner --module=app.module.ts --root=true --skipTests=true
 
+generate alert effect
+ng g effect store/effects/alert --module=app.module.ts --root=true --skipTests=true
+
+generate route effect
+ng g effect store/effects/route --module=app.module.ts --root=true --skipTests=true
 
 
 

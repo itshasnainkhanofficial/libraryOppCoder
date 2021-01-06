@@ -21,6 +21,9 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ShareModule } from './shared/shared.module';
 import { ContainerComponent } from './container/container/container.component';
 import { RootcheckingpageComponent } from './rootcheckingpage/rootcheckingpage.component';
+import { SpinnerEffects } from './store/effects/spinner.effects';
+import { AlertEffects } from './store/effects/alert.effects';
+import { RouteEffects } from './store/effects/route.effects';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,7 @@ import { RootcheckingpageComponent } from './rootcheckingpage/rootcheckingpage.c
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     FormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([CustomerSupportEffects]),
+    EffectsModule.forRoot([CustomerSupportEffects, SpinnerEffects, AlertEffects, RouteEffects]),
     AuthModule,
     ShareModule
   ],

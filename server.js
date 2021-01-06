@@ -24,10 +24,14 @@ app.use(morgan("dev"));
 //getting all routes
 const bookroute = require("./backend/server/routes/book");
 const msgroute = require("./backend/server/routes/msg");
+const loginroute = require("./backend/server/routes/login");
+
 
 // RESTful API root
 app.use('/api', bookroute);
 app.use('/api', msgroute);
+app.use('/api', loginroute);
+
 
 //root point for testing
 app.get("/", (req, res) => {
