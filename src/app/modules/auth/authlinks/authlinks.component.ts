@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faSignInAlt , faSignOutAlt , faUserCircle , faUser } from '@fortawesome/free-solid-svg-icons';
+import { ModalService } from 'src/app/shared/modal.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-authlinks',
@@ -11,9 +13,12 @@ export class AuthlinksComponent implements OnInit {
   faSignOut = faSignOutAlt;
   userCircle = faUserCircle;
   userRegister = faUser;
-  constructor() { }
+  constructor(private modalservice : ModalService) { }
 
   ngOnInit(): void {
   }
 
+  openModal(){
+    this.modalservice.show(LoginComponent);
+  }
 }

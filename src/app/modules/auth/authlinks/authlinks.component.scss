@@ -1,14 +1,14 @@
 @import "../../../../styles.scss";
 
-
 ul{
     list-style: none;
-    margin: 0;
+    margin: 0 ;
     li{
-        padding: 0.3rem;
+        padding: 0.1rem ;
         a{
             color: $white ;
             text-decoration: none;
+            font-size: 0.7rem;
             &:hover{
                 color : $primary
             }
@@ -27,8 +27,35 @@ ul{
             }
             
         }
-        .active{
-            color:$primary
-          }
+    //     .active{
+    //         color:$primary
+    //       }
     }
 }
+
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    ul{
+        li{
+            a{
+                font-size: 1rem;
+            }
+        }
+    }
+ }
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// X-Large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
+
+// XX-Large devices (larger desktops, 1400px and up)
+// @media (min-width: 1400px) { ... }

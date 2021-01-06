@@ -13,6 +13,7 @@ export class ModalService {
       this.modalRef.hide();
     }
   }
+  
   show(component : any) {
     this.modalRef = this.modalService.show(component);
   }

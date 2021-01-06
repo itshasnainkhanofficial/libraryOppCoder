@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../resources/services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalService } from 'src/app/shared/modal.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   
 
 
-  constructor(private _userService : UserService , private router : Router) { }
+  constructor(private _userService : UserService , private router : Router ,   private modalService: ModalService) { }
 
   ngOnInit(): void {
     
@@ -61,6 +62,8 @@ export class LoginComponent implements OnInit {
   }
 
   
-
+  cancel(): void {
+    this.modalService.hide();
+  }
 
 }

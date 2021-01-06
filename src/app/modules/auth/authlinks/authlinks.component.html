@@ -1,19 +1,18 @@
 <div class="bg-topbar text-navbar ">
     <ul class=" text-light d-flex justify-content-center justify-content-md-end">
         <li>
-            <a  [routerLink]="['auth/login']" routerLinkActive="active"><fa-icon [icon]="faSignIn"></fa-icon> Sign in
+            <a  (click)="openModal()" routerLinkActive="active"><fa-icon [icon]="faSignIn"></fa-icon> Sign in
             </a>
           </li>
         <li>
             <a  [routerLink]="['auth/register']" routerLinkActive="active"><fa-icon [icon]="userRegister"></fa-icon> Sign up
             </a>
           </li>
-  
           <li >
-            <a  href="#"><fa-icon [icon]="faSignOut"></fa-icon> Sign out</a>
+            <a  [routerLink]="['auth/signout']"><fa-icon [icon]="faSignOut"></fa-icon> Sign out</a>
           </li>
           <li >
-            <a  href="#"><span class="badge rounded-pill bg-warning  px-3"><fa-icon [icon]="userCircle"></fa-icon> profile</span></a>
+            <a  [routerLink]="['auth/profile']"><span class="badge rounded-pill bg-warning  px-3"><fa-icon [icon]="userCircle"></fa-icon> profile</span></a>
           </li>
     </ul>
 </div>

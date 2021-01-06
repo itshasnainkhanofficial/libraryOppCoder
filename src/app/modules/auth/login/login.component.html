@@ -1,13 +1,14 @@
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-5 m-auto">
-                        
-                            
-                        <form class="rounded shadow p-5 m-5 registerform" [formGroup]="LoginForm" (ngSubmit)="userLogin()">
-                            <h1>User Login</h1>
-
-
-                            <div class="form-group">
+                    <div class="col-md-6 m-auto">
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">Login</h4>
+                            <button type="button" class="close pull-right btn" aria-label="Close" (click)="cancel()">
+                              <span aria-hidden="true" class="btn-close"></span>
+                            </button>
+                          </div>
+                        <form class="rounded p-3 m-3 p-xl-5 m-xl-5  LoginForm" [formGroup]="LoginForm" (ngSubmit)="userLogin()">
+                            <div class="form-group pb-2">
                                 <label for="email">Email address</label>
                                 <input type="email" class="form-control" id="email" autocomplete="off" placeholder="Enter email"
                                     formControlName="email">
@@ -26,12 +27,11 @@
                                         email is required
                                     </span>
                                 </small>
-                           
 
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-group pb-3">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="password" autocomplete="off"
                                     placeholder="Enter password" formControlName="password">
@@ -39,14 +39,14 @@
                                     *ngIf="!LoginForm.get('password').valid && LoginForm.get('password').touched">Please enter valid
                                     passowrd.</small>
                             </div>
-                            <button type="submit" class="btn btn-primary" [disabled]="!LoginForm.valid">login</button>
+
+                            <button type="submit" class="btn btn-primary text-white mr-2" [disabled]="!LoginForm.valid">login</button>
+                            <button type="button" class="btn btn-primary text-white" [disabled]="!LoginForm.valid" (click)="cancel()">cancel</button>
                         </form>
-                   
+                   </div>
                     </div>
 
 
-
-                </div>
             </div>
 
 
