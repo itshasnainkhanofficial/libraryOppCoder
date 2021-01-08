@@ -4,7 +4,9 @@ import { UserService } from '../resources/services/user.service';
 import {User} from "../resources/models/user";
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-
+import { Store } from '@ngrx/store';
+import { LibraryState } from '../../../store/index';
+import { registerPage } from 'src/app/store/actions/auth.actions';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -14,7 +16,7 @@ export class RegisterComponent implements OnInit {
   
   
 
-  registerForm !: FormGroup ;
+  registerForm : FormGroup ;
   
   notAllowedName = ["admin" , "librarian" , "reader"];
   disableBtn : boolean = false; 
@@ -31,7 +33,7 @@ export class RegisterComponent implements OnInit {
   ];
 
 
-  constructor(private _userService : UserService , private router : Router) { }
+  constructor(private _userService : UserService , private router : Router , private store: Store<LibraryState>) { }
 
   ngOnInit(): void {
 
@@ -52,22 +54,22 @@ export class RegisterComponent implements OnInit {
 
     });
 
-    // this.registerForm.statusChanges.subscribe(
-    //   (status) => {
-    //     if(status === "VALID"){
+    this.registerForm.statusChanges.subscribe(
+      (status) => {
+        if(status === "VALID"){
 
-    //       this.disableBtn = false;
-    //       this.formStatus = status;
-    //     }
+          this.disableBtn = false;
+          this.formStatus = status;
+        }
 
-    //     else{
+        else{
 
-    //       this.disableBtn = true;
-    //       this.formStatus = status;
+          this.disableBtn = true;
+          this.formStatus = status;
 
-    //     }
-    //   }
-    // );
+        }
+      }
+    );
 
   }
 
@@ -75,15 +77,32 @@ export class RegisterComponent implements OnInit {
 
 
   userRegister(){
-    if(this.registerForm.valid){
+    // if(this.registerForm.valid){
 
-      // this._userService.register(this.registerForm.value).subscribe( res => {
-      //   this.registerForm.reset();
-      //   console.log(res);
-      //   this.router.navigate(["user/login"])
-      // })
+    //   this._userService.register(this.registerForm.value).subscribe( res => {
+    //     console.log(res);
+    //   },
+    //   err => {
+    //     console.log(err.error.text);
+    // }
+      
+    //   )
+    // }
+    if(this.registerForm.valid){
+      const user  : User = {
+        username : this.registerForm.value.username,
+        email : this.registerForm.value.email,
+        password : this.registerForm.value.cpassword,
+        user_role : this.registerForm.value.user_role,
+        gender : this.registerForm.value.gender
+      }
+      this.store.dispatch(registerPage({ user }))
     }
+
   }
+
+
+
   // onSubmit(){
 
   //   console.log(this.registerForm.value);

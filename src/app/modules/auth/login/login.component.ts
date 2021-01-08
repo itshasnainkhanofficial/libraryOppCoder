@@ -40,15 +40,14 @@ export class LoginComponent implements OnInit {
 
 
   userLogin(){
-    // console.log(this.LoginForm);
+
+    
     if(this.LoginForm.valid){
 
       this._userService.userLogin(this.LoginForm.value).subscribe(
         res => {
           console.log(res);
-          // localStorage.setItem("token" , res.token);
-          // this.LoginForm.reset();
-          // this.router.navigate(["books"]);
+          
       },
       
       err => {

@@ -17,4 +17,10 @@ export class UserService {
     return this.http.postMethod('/' , data );
     
   }
+
+  register(user){
+    
+    return this.http.postMethod(`/register` , user);
+    
+  }
 }
