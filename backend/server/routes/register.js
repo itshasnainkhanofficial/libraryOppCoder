@@ -63,3 +63,78 @@ routes.post("/register" , async (req , res ) => {
   });
 
 module.exports = routes ;
+
+
+
+
+// const routes = require("express").Router();
+// const registermodel = require("../models/register");
+// const bcryptjs = require("bcryptjs");
+// // const jwt = require("jsonwebtoken");
+// // const verify = require("../routes/verifyToken");
+
+// // register users 
+// routes.post("/register" , async (req , res , next ) => {
+//     // checking user email id in database 
+//     const emailExist = await registermodel.findOne({
+//         email : req.body.email
+//     });
+    
+//     if(emailExist) {
+//       const err = {};
+//         // return  res.send("email already exist")
+//         err.customMessage = "email already exist";
+//         err.whereError = "register post checking email"
+        
+//     };
+    
+//     // password hashing 
+//     const salt = await bcryptjs.genSalt(10);
+//     const hashedPassword = await bcryptjs.hash(req.body.password , salt);
+
+    
+//     const registration = new registermodel({
+  
+//         username: req.body.username,
+//         email : req.body.email,
+//         password:hashedPassword,
+//         user_role: req.body.user_role,
+//         gender:req.body.gender
+//         // isActive : req.body.isActive,
+//         // createdOn : req.body.createdOn
+        
+//     });
+  
+    
+//     try {
+
+//         const savedRegisteration = await registration.save();
+//         res.send(savedRegisteration);
+        
+        
+        
+//     } catch (error) {
+      
+//         if (error.name === 'MongoError' && error.code === 11000) {
+//           error.customMessage = 'duplicate emails not allowed';
+            
+//           } 
+//           else if (error.message)
+//           {
+//             error.message = error.message;
+//             error.customMessage = error.code
+
+//           }
+//           else{
+//               // console.log(error);
+//             // return res.send(error.code);
+//             error.customMessage = error.code
+//           }
+//           error.whereError = "register post"
+//           next(error)
+
+//     }
+    
+//   });
+
+// module.exports = routes ;

@@ -21,7 +21,7 @@ export class SpinnerEffects {
   );
   spinnerOff$ = createEffect(() => {
     return this.actions$.pipe(
-        ofType(fromAuthAction.registerFailure , fromAuthAction.registerSuccess , fromAuthAction.loginFailure , fromAuthAction.registerFailure ),
+        ofType(fromAuthAction.registerFailure , fromAuthAction.registerSuccess , fromAuthAction.loginFailure , fromAuthAction.loginSuccess ),
         /** An EMPTY observable only emits completion. Replace with your own observable stream */
         tap(() => this.spinner.hide()));
   },

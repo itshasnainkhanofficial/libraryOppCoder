@@ -35,19 +35,27 @@ constructor(private actions$: Actions , private userService : UserService) {}
 
         /** An EMPTY observable only emits completion. Replace with your own observable stream */
         mergeMap((action) => {
-          console.log(action , "pure action")
-          console.log(action.user , "pure action.user")
+          // console.log(action , "pure action")
+          // console.log(action.user , "pure action.user")
 
           return this.userService.register(action.user).pipe(map((data) => {
 
-            console.log(data , "pure data")
-
+            // console.log(data , "pure data")
             // const user = { ...action.user , name : "hahah" }
             
             // console.log(user , "pure user") ;
-            return AuthActions.registerSuccess(data)
+            return AuthActions.registerSuccess({user : data})
             // return console.log(action);
-          }))
+          }),
+          catchError(error => 
+            {
+             console.log(error , "from catch");
+              
+             return  of(AuthActions.registerFailure({ err : error }))}
+             
+             )
+          
+          )
         }));
   });
 

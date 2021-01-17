@@ -59,8 +59,8 @@ app.use((err, req, res, next) => {
 
       status: err.status,
       message: err.message,
+      customMessage: err.customMessage,
       reason: err.reason,
-      myreason: err.myreason,
       whereError : err.whereError
 
   })

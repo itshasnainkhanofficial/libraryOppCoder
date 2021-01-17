@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { AlertModule } from "ngx-alerts";
 import { ContactusComponent } from './layout/contactus/contactus.component';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -24,7 +25,7 @@ import { RootcheckingpageComponent } from './rootcheckingpage/rootcheckingpage.c
 import { SpinnerEffects } from './store/effects/spinner.effects';
 import { AlertEffects } from './store/effects/alert.effects';
 import { RouteEffects } from './store/effects/route.effects';
-
+import { ModalEffects } from './store/effects/modal.effects';
 
 @NgModule({
   declarations: [
@@ -39,13 +40,14 @@ import { RouteEffects } from './store/effects/route.effects';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    AlertModule.forRoot({maxMessages: 5, timeout: 2000, positionX: 'right' , positionY: "top"}),
     ModalModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     FormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([CustomerSupportEffects, SpinnerEffects, AlertEffects, RouteEffects]),
+    EffectsModule.forRoot([CustomerSupportEffects, SpinnerEffects, AlertEffects, RouteEffects , ModalEffects]),
     AuthModule,
     ShareModule
   ],

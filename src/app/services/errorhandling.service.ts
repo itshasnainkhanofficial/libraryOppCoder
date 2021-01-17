@@ -11,6 +11,7 @@ export class ErrorhandlingService {
 
 
   handleError(err : HttpErrorResponse){
+    console.log("error api")
   const error = err.error;
   const keys = Object.keys(error);
   const key = keys[0];
@@ -35,7 +36,7 @@ export class ErrorhandlingService {
     message = key + ' : ' + message;
   }
   // call snackbar and show error with message
-  return throwError({messages: message, error});
+  return throwError({messagess: message, error});
 
   
 }
