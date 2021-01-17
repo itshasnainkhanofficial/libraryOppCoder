@@ -25,6 +25,7 @@ import { SpinnerEffects } from './store/effects/spinner.effects';
 import { AlertEffects } from './store/effects/alert.effects';
 import { RouteEffects } from './store/effects/route.effects';
 
+
 @NgModule({
   declarations: [
     AppComponent,

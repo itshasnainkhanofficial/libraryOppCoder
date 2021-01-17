@@ -18,7 +18,6 @@ import {  ReactiveFormsModule  } from "@angular/forms";
   imports: [
     ShareModule,
     ReactiveFormsModule,
-
     CommonModule,
     AuthRoutingModule,
     StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),

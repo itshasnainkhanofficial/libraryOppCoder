@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../resources/services/user.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalService } from 'src/app/shared/modal.service';
+import { Store } from '@ngrx/store';
+import { LibraryState } from 'src/app/store';
+import { loginModal } from 'src/app/store/actions/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +20,13 @@ export class LoginComponent implements OnInit {
   
 
 
-  constructor(private _userService : UserService , private router : Router ,   private modalService: ModalService) { }
+  constructor(
+    private _userService : UserService ,
+    private router : Router ,
+    private modalService: ModalService,
+    private store : Store<LibraryState>
+    
+    ) { }
 
   ngOnInit(): void {
     
@@ -26,9 +35,9 @@ export class LoginComponent implements OnInit {
     this.LoginForm = new FormGroup({
 
     
-      'email': new FormControl("hasnain@gmail.com" , [Validators.required, Validators.email] ),
+      'email': new FormControl("abcd@gmail.com" , [Validators.required, Validators.email] ),
 
-      'password': new FormControl("abcdef" , [Validators.required , Validators.minLength(5)]),
+      'password': new FormControl("12345" , [Validators.required , Validators.minLength(5)]),
 
 
     });
@@ -42,24 +51,32 @@ export class LoginComponent implements OnInit {
   userLogin(){
 
     
+    // if(this.LoginForm.valid){
+
+    //   this._userService.userLogin(this.LoginForm.value).subscribe(
+    //     res => {
+    //       console.log(res);
+          
+    //   },
+      
+    //   err => {
+    //       console.log(err.error.text);
+    //   }
+      
+    //   )
+    // }
+
+
     if(this.LoginForm.valid){
 
-      this._userService.userLogin(this.LoginForm.value).subscribe(
-        res => {
-          console.log(res);
-          
-      },
-      
-      err => {
-          console.log(err.error.text);
-      }
-      
-      )
+
+      this.store.dispatch(loginModal(this.LoginForm.value))
     }
   
   }
 
   
+
   cancel(): void {
     this.modalService.hide();
   }

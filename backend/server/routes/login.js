@@ -7,11 +7,13 @@ const bcryptjs = require("bcryptjs");
 
 
 router.post("/", async (req , res ) => {
-
+    console.log(req.body.email)
     const user = await registermodel.findOne({
 
         email: req.body.email
     });
+
+    console.log(user)
 
     if(!user){
 
@@ -20,6 +22,7 @@ router.post("/", async (req , res ) => {
     
 
    else{
+    // return res.send("email registered");
 
     const validatePassword = await bcryptjs.compare(req.body.password , user.password);
 
@@ -27,12 +30,17 @@ router.post("/", async (req , res ) => {
 
         return res.send("password did not matched");
     }
-
     else{
-        // const token = jwt.sign({_id: user._id} , process.env.MENQBTAUN);
-        // res.header("auth-token" , token).send({token : token});
-        return res.send("password matched successfully");
+        console.log()
+        res.send(user);
+
     }
+
+    // else{
+    //     // const token = jwt.sign({_id: user._id} , process.env.MENQBTAUN);
+    //     // res.header("auth-token" , token).send({token : token});
+    //     return res.send("password matched successfully");
+    // }
    }
 })
 

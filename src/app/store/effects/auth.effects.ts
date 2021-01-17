@@ -35,12 +35,57 @@ constructor(private actions$: Actions , private userService : UserService) {}
 
         /** An EMPTY observable only emits completion. Replace with your own observable stream */
         mergeMap((action) => {
+          console.log(action , "pure action")
+          console.log(action.user , "pure action.user")
+
           return this.userService.register(action.user).pipe(map((data) => {
-            const user = { ...action.user , name : data.name }
-            return AuthActions.registerSuccess({user})
+
+            console.log(data , "pure data")
+
+            // const user = { ...action.user , name : "hahah" }
+            
+            // console.log(user , "pure user") ;
+            return AuthActions.registerSuccess(data)
+            // return console.log(action);
           }))
         }));
   });
 
+
+  loginEffect$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(AuthActions.loginModal),
+        mergeMap((action) =>
+        {
+          // console.log(action)
+          // console.log(action.email , action.password)
+          const login = {
+              email : action.email,
+              password : action.password
+          }
+          return this.userService.userLogin(login).pipe(
+          
+            map(data => 
+             { 
+               
+              localStorage.setItem('user', JSON.stringify(data["_id"]))
+              console.log(data , "from map")
+               return AuthActions.loginSuccess({user : data})
+
+            }
+              ),
+            catchError(error => 
+             {
+              console.log(error , "from catch");
+               
+              return  of(AuthActions.loginFailure({ err : error }))}
+              
+              )
+              )
+          
+        }
+          ),
+    );
+  });
 
 }
