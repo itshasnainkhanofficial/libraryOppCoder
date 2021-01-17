@@ -27,6 +27,7 @@ import { AlertEffects } from './store/effects/alert.effects';
 import { RouteEffects } from './store/effects/route.effects';
 import { ModalEffects } from './store/effects/modal.effects';
 
+
 @NgModule({
   declarations: [
     AppComponent,
