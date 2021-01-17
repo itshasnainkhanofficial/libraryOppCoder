@@ -1,26 +1,14 @@
 import { createAction, props } from '@ngrx/store';
 import { User } from 'src/app/modules/auth/resources/models/user';
-
-export const loadAuths = createAction(
-  '[Auth] Load Auths'
-);
-
-export const loadAuthsSuccess = createAction(
-  '[Auth] Load Auths Success',
-  props<{ data: any }>()
-);
-
-export const loadAuthsFailure = createAction(
-  '[Auth] Load Auths Failure',
-  props<{ error: any }>()
-);
+import { loginInterface } from "src/app/modules/auth/resources/models/login";
 
 
 //login modal
 
 export const loginModal = createAction(
   '[Login Modal Component] Login User',
-  props<{ username: string; password: string }>()
+  // props<{ loginData : loginInterface}>()
+  props<{ email : string , password : string}>()
 );
 
 export const loginSuccess = createAction(
@@ -30,7 +18,7 @@ export const loginSuccess = createAction(
 
 export const loginFailure = createAction(
   '[Auth Effect] Login User Failure',
-  props<{ error: any }>()
+  props<{ err: any }>()
 );
 
 
@@ -47,7 +35,7 @@ export const registerSuccess = createAction(
 
 export const registerFailure = createAction(
   '[Auth Effect] register User Failure',
-  props<{ error: any }>()
+  props<{ err: any }>()
 );
 
 // logout 

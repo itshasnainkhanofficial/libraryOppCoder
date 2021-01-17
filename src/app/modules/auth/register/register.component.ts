@@ -90,11 +90,13 @@ export class RegisterComponent implements OnInit {
     // }
     if(this.registerForm.valid){
       const user  : User = {
+        
         username : this.registerForm.value.username,
         email : this.registerForm.value.email,
         password : this.registerForm.value.cpassword,
         user_role : this.registerForm.value.user_role,
-        gender : this.registerForm.value.gender
+        gender : this.registerForm.value.gender,
+        isAdmin : false
       }
       this.store.dispatch(registerPage({ user }))
     }
