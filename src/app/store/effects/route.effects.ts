@@ -13,7 +13,7 @@ export class RouteEffects {
 
   constructor(private actions$: Actions, private route: Router) {}
 
-  goShopping$ = createEffect(
+  registertohome$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(fromAuthAction.registerSuccess),

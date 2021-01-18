@@ -8,14 +8,30 @@ export const authFeatureKey = 'auth';
 
 export const reducer = createReducer(
   initialState,
-  // on(AuthActions.registerPage, (state, action) => {
-  //   return {
-  //     ...state,
-  //     user : action.user
-  //   }
+  on(AuthActions.registerSuccess, (state, action) => {
+    return {
+      ...state,
+      user : action.user,
+      err : null
+    }
     
-  // })
-  on(AuthActions.loginSuccess , (state , action) => {
+  }),
+  on(AuthActions.registerFailure, (state, action) => {
+    return {
+      ...state,
+      user : {
+        _id : null,
+        username : null,
+        email : null,
+        password : null ,
+        gender : null ,
+        user_role : null,
+        isAdmin : null
+      },
+      err : action.err
+    }
+  }),
+  on(AuthActions.loginSuccess ,AuthActions.browserReload, (state , action) => {
     return {
       ...state,
       user : action.user,
@@ -26,7 +42,7 @@ export const reducer = createReducer(
     return {
       ...state,
       user : {
-        id : null,
+        _id : null,
         username : null,
         email : null,
         password : null ,
@@ -35,6 +51,21 @@ export const reducer = createReducer(
         isAdmin : null
       },
       err : action.err
+    }
+  }),
+  on(AuthActions.logout , (state , action) => {
+    return {
+      ...state,
+      user : {
+        _id : null,
+        username : null,
+        email : null,
+        password : null ,
+        gender : null ,
+        user_role : null,
+        isAdmin : null
+      },
+      err : null
     }
   })
 

@@ -1,18 +1,41 @@
-<div class="bg-topbar text-navbar ">
-    <ul class=" text-light d-flex justify-content-center justify-content-md-end">
-        <li>
-            <a  (click)="openModal()" routerLinkActive="active" class="signinmodal"><fa-icon [icon]="faSignIn"></fa-icon> Sign in
-            </a>
-          </li>
-        <li>
-            <a  [routerLink]="['auth/register']" routerLinkActive="active"><fa-icon [icon]="userRegister"></fa-icon> Sign up
-            </a>
-          </li>
-          <li >
-            <a  [routerLink]="['auth/signout']"><fa-icon [icon]="faSignOut"></fa-icon> Sign out</a>
-          </li>
-          <li >
-            <a  [routerLink]="['auth/profile']"><span class="badge rounded-pill bg-warning  px-3"><fa-icon [icon]="userCircle"></fa-icon> profile</span></a>
-          </li>
-    </ul>
+<div class="bg-topbar text-navbar " *ngIf="vm$ | async as vm">
+
+
+  <ul class=" text-light d-flex justify-content-center justify-content-md-end">
+    <li *ngIf="vm.isLoggedIn && vm.user_role == 1">
+      <a  routerLinkActive="active" class="signinmodal">
+        <fa-icon [icon]="faShieldAlt"></fa-icon> Admin
+      </a>
+    </li>
+    <li *ngIf="!vm.isLoggedIn">
+      <a (click)="openModal()" routerLinkActive="active" class="signinmodal">
+        <fa-icon [icon]="faSignIn"></fa-icon> Sign in
+      </a>
+    </li>
+    <li *ngIf="!vm.isLoggedIn">
+      <a [routerLink]="['auth/register']" routerLinkActive="active">
+        <fa-icon [icon]="userRegister"></fa-icon> Sign up
+      </a>
+    </li>
+    <li *ngIf="vm.isLoggedIn" (click)="logout()">
+      <a [routerLink]="['/home']">
+        <fa-icon [icon]="faSignOut"></fa-icon> Sign out
+      </a>
+    </li>
+    <li *ngIf="vm.isLoggedIn">
+      <a [routerLink]="['auth/profile']"><span class="badge rounded-pill bg-warning  px-3">
+          <fa-icon [icon]="userCircle"></fa-icon>
+          
+          <ng-container >{{vm.username}}</ng-container>
+          <!-- <ng-container [ngSwitch]="vm.user_role">
+            
+            <ng-container *ngSwitchCase="1">Admin</ng-container>
+            <ng-container *ngSwitchCase="2">Librarian</ng-container>
+            <ng-container *ngSwitchCase="3">Reader</ng-container>
+            <ng-container *ngSwitchDefault>Unknown</ng-container>
+          </ng-container> -->
+        
+        </span></a>
+    </li>
+  </ul>
 </div>

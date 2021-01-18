@@ -30,7 +30,7 @@ export class AlertEffects {
           {
             this.alertService.success(
             
-              'Welcome back' + action.user.username + ' !'
+              'Welcome back ' + action.user.username + ' !'
             )
           }
         )
@@ -76,6 +76,18 @@ export class AlertEffects {
         tap((action) => {
           console.log(action.err.error.text , "from register error")
           this.alertService.danger(`Unable to register ${action.err.error.text}`)
+        })
+      ),
+    { dispatch: false }
+  );
+
+  logoutEffectAlert$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromAuthAction.logout),
+        tap(() => {
+          
+          this.alertService.danger(`Logout Successfully`)
         })
       ),
     { dispatch: false }

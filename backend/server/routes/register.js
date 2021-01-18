@@ -39,6 +39,9 @@ routes.post("/register" , async (req , res ) => {
 
         const savedRegisteration = await registration.save();
         res.send(savedRegisteration);
+        console.log(savedRegisteration);
+        
+
         
         
         

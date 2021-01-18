@@ -35,9 +35,9 @@ export class LoginComponent implements OnInit {
     this.LoginForm = new FormGroup({
 
     
-      'email': new FormControl("abcd@gmail.com" , [Validators.required, Validators.email] ),
+      'email': new FormControl("hasnain@gmail.com" , [Validators.required, Validators.email] ),
 
-      'password': new FormControl("12345" , [Validators.required , Validators.minLength(5)]),
+      'password': new FormControl("123456" , [Validators.required , Validators.minLength(5)]),
 
 
     });

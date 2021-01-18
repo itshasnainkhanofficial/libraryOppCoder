@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-navbar" *ngIf="vm$ | async as vm">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,22 +15,22 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/rootcheck']" routerLinkActive="active">root</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="vm.isLoggedIn && vm.user_role == 1">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              Dropdown
+              Admin Action
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+              <li><a class="dropdown-item" href="#">User management</a></li>
+              <li><a class="dropdown-item" href="#">Book management</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">Assign role</a></li>
             </ul>
           </li>
         </ul>
   
         <hr>
   
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" *ngIf="vm.isLoggedIn">
           
           <li class="nav-item">
             <a class="nav-link" href="#"><span class="badge bg-primary">9</span> <fa-icon [icon]="faCart"></fa-icon> cart</a>

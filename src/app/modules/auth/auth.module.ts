@@ -20,6 +20,7 @@ import {  ReactiveFormsModule  } from "@angular/forms";
     ReactiveFormsModule,
     CommonModule,
     AuthRoutingModule,
+    
     StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
     EffectsModule.forFeature([AuthEffects])
   ]
