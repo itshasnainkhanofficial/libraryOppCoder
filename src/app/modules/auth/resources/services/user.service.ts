@@ -14,11 +14,6 @@ export class UserService {
 
 
   userLogin(data : loginInterface): Observable<User> {
-  // userLogin(email : string , password : string): Observable<User> {
-    // const data = {
-    //   email : email,
-    //   password : password
-    // }
     return this.http.postMethod('/' , data );
     
   }

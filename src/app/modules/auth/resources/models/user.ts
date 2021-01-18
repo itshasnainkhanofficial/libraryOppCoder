@@ -7,16 +7,3 @@ export interface User {
     user_role : number,
     isAdmin : boolean
 }
-
-
-
-// isActive : boolean,
-// createdOn : Date
-
-
-// export var UserModel: User = {
-//     id: null,
-//     username: null,
-//     email: null,
-//     isadmin: false,
-//   };

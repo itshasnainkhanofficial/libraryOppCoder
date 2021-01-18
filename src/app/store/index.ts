@@ -1,10 +1,4 @@
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
-} from '@ngrx/store';
+import {ActionReducerMap,MetaReducer} from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromCustomerSupport from './reducers/customer-support.reducer';
 import * as fromAuth from './reducers/auth.reducer';

@@ -1,8 +1,5 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import { CustomerMessage } from 'src/app/shared/models/customer-message';
-import { clearForm, sendingCustomerSupportMessage, 
-  sendMsgStatus 
-} from '../actions/customer-support.actions';
+import {  createReducer, on } from '@ngrx/store';
+import { clearForm, sendingCustomerSupportMessage, sendMsgStatus } from '../actions/customer-support.actions';
 
 
 export const customerSupportFeatureKey = 'customerSupport';
@@ -22,7 +19,7 @@ export const reducer = createReducer(
   initialState,
   on(sendingCustomerSupportMessage , (state , action) => {
     return {
-      ...state , 
+      ...state ,
       name : action.data.name
     }
   }),
@@ -31,7 +28,6 @@ export const reducer = createReducer(
     return {
       ...state ,
       isSentSuccess : action.isSentSuccess,
-      
     }
   }),
   on(clearForm , (state) => {
@@ -39,7 +35,6 @@ export const reducer = createReducer(
       ...state ,
       name: null,
       isSentSuccess : null,
-      
     }
   })
 );

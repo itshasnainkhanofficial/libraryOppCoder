@@ -77,17 +77,7 @@ export class RegisterComponent implements OnInit {
 
 
   userRegister(){
-    // if(this.registerForm.valid){
 
-    //   this._userService.register(this.registerForm.value).subscribe( res => {
-    //     console.log(res);
-    //   },
-    //   err => {
-    //     console.log(err.error.text);
-    // }
-      
-    //   )
-    // }
     if(this.registerForm.valid){
       const user  : User = {
         
@@ -104,12 +94,6 @@ export class RegisterComponent implements OnInit {
   }
 
 
-
-  // onSubmit(){
-
-  //   console.log(this.registerForm.value);
-  //   alert("form submited");
-  // }
 
   naNames(control : FormControl){
 

@@ -1,6 +1,5 @@
 import { createAction, props } from '@ngrx/store';
 import { User } from 'src/app/modules/auth/resources/models/user';
-import { loginInterface } from "src/app/modules/auth/resources/models/login";
 
 
 //login modal

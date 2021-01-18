@@ -16,26 +16,21 @@ import { CustomerSupportViewModel, selectCustomerSupportModel,
   templateUrl: './contactus.component.html',
   styleUrls: ['./contactus.component.scss']
 })
-export class ContactusComponent implements AfterViewInit , OnInit  {
+export class ContactusComponent implements  OnInit  {
 
   phone = faPhone;
 
-  // name$!: Observable<string>;
+  
   vm$!: Observable<CustomerSupportViewModel>;
 
   @ViewChild("contactModal") ContactModal!: TemplateRef<any>;
 
   ngOnInit(): void {
 
-    // this.name$ = this.store.pipe(select(selectFeatureName))
     this.vm$ = this.store.pipe(select(selectCustomerSupportModel))
 
   }
-  ngAfterViewInit(): void {
-      
-        // this.modalRef = this.modalService.show(this.ContactModal);
 
-    }
 
     
     

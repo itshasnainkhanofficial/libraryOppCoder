@@ -5,11 +5,6 @@ import { customerSupportFeatureKey, State } from '../reducers/customer-support.r
 export const selectCustomerSupportFeature = createFeatureSelector<State>(
     customerSupportFeatureKey
 );
-// export const selectFeatureName = createSelector(
-//     selectCustomerSupportFeature,
-//     (state: State) => state.name,
-//   );
-
 export interface CustomerSupportViewModel{
     name : string | null,
     isSentSuccess : boolean | null
