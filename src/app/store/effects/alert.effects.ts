@@ -74,8 +74,9 @@ export class AlertEffects {
       this.actions$.pipe(
         ofType(fromAuthAction.registerFailure),
         tap((action) => {
-          console.log(action.err.error.text , "from register error")
-          this.alertService.danger(`Unable to register ${action.err.error.text}`)
+          // console.log(action.err , "from register error")
+          // this.alertService.danger(`Unable to register ${action.err.error.text}`)
+          this.alertService.danger(`Unable to register ${action.err}`)
         })
       ),
     { dispatch: false }

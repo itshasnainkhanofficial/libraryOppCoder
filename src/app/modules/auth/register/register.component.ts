@@ -19,8 +19,8 @@ export class RegisterComponent implements OnInit {
   registerForm : FormGroup ;
   
   notAllowedName = ["admin" , "librarian" , "reader"];
-  disableBtn : boolean = false; 
-  formStatus : any ; 
+  disableBtn : boolean = false;
+  formStatus : any ;
   genders = [
     {
       id: 1,
@@ -54,22 +54,22 @@ export class RegisterComponent implements OnInit {
 
     });
 
-    this.registerForm.statusChanges.subscribe(
-      (status) => {
-        if(status === "VALID"){
+    // this.registerForm.statusChanges.subscribe(
+    //   (status) => {
+    //     if(status === "VALID"){
 
-          this.disableBtn = false;
-          this.formStatus = status;
-        }
+    //       this.disableBtn = false;
+    //       this.formStatus = status;
+    //     }
 
-        else{
+    //     else{
 
-          this.disableBtn = true;
-          this.formStatus = status;
+    //       this.disableBtn = true;
+    //       this.formStatus = status;
 
-        }
-      }
-    );
+    //     }
+    //   }
+    // );
 
   }
 
@@ -78,7 +78,7 @@ export class RegisterComponent implements OnInit {
 
   userRegister(){
 
-    if(this.registerForm.valid){
+    // if(this.registerForm.valid){
       const user  : User = {
         
         username : this.registerForm.value.username,
@@ -89,7 +89,7 @@ export class RegisterComponent implements OnInit {
         isAdmin : false
       }
       this.store.dispatch(registerPage({ user }))
-    }
+    // }
 
   }
 

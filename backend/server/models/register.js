@@ -7,23 +7,23 @@ const registerSchema = new mongoose.Schema({
 
     username : {
         type : String,
-        required : true,
-        minlength:  [3 , "minimum leangth error"],
-        maxlength: [15 , "maximum leangth error"],
+        required : [true , 'username is required'],
+        minlength:  [3 , "username must be consist of minimum 3 characters"],
+        maxlength: [50 , "username cannot be consits of more than 50 characters"],
         lowercase: true,
-        trim: true
+        trim: true,
       },
      
       email : {
         type : String,
         required: [true, 'email is required'],
+        unique : [true , 'That username is taken'],
         trim: true,
-        unique : [true , "email should be unique"]
       },
 
       password : {
         type : String,
-        required : true
+        required : [true , 'password is required']
       },
       gender : {
         type : Number,

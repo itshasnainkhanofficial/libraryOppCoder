@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const app = express();
 require('dotenv').config();
 const path = require("path");
-
+const errorcontroler = require("./backend/errorhandling/errorcontroler")
 const port = process.env.PORT | 8080;
 
 // Create link to Angular build directory
@@ -46,29 +46,45 @@ app.get("/", (req, res) => {
 app.use((req, res, next) => {
   const err = new Error('path not found');
   err.status = 404;
-  err.message = "esa koi page ni"
+  err.message = "page not found"
+  err.customMessage = "page not found"
   next(err);
 });
 
 //error handler
 app.use((err, req, res, next) => {
+  console.log(err)
+  if(err.name === 'ValidationError'){
+    let errors = Object.values(err.errors).map(el => el.message);
+    let fields = Object.values(err.errors).map(el => el.path);
+    let code = 400;
 
-  res.status(err.status || 500);
+    res.status(code).send({customMessage: errors , fields: fields})
+   }
 
-  res.json({
+   else if(err.code && err.code == 11000){
+    const field = Object.keys(err.keyValue);
+    const code = 409;
+    const customMessage = `An account with that ${field} address already exists.`;
+    res.status(code).send({customMessage : customMessage, field });
+   }
+  else{
+    res.json({
 
-      status: err.status,
+      status: err.status || 500,
       message: err.message,
       customMessage: err.customMessage,
-      reason: err.reason,
-      whereError : err.whereError
 
   })
+
+  }
 });
-
-
 app.listen(process.env.PORT, () => {
   console.log(`library running at http://localhost:${port}`)
 })
 
 
+
+
+
+// app.use(errorcontroler);

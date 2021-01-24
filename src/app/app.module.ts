@@ -15,7 +15,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './store';
 import { FormsModule  } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from '@ngrx/effects';
 import { CustomerSupportEffects } from './store/effects/customer-support.effects';
 import { AuthModule } from './modules/auth/auth.module';
@@ -27,7 +26,8 @@ import { AlertEffects } from './store/effects/alert.effects';
 import { RouteEffects } from './store/effects/route.effects';
 import { ModalEffects } from './store/effects/modal.effects';
 import { AppEffects } from './store/effects/app.effects';
-
+import { HttpClientModule ,HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ErrorIntercept } from './core/interceptors/error.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +52,13 @@ import { AppEffects } from './store/effects/app.effects';
     AuthModule,
     ShareModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorIntercept,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

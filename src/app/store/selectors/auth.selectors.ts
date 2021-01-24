@@ -34,7 +34,7 @@ export const selectAuthLinkViewModal = createSelector(
   [selectAuthState , selectIsLoggedIn, selectName , selectRole],
   
   (state : AuthState , isLoggedIn : boolean , name : string , role : number) : AuthLinkViewModal => {
-    console.log(state , "from selector")
+    // console.log(state , "from selector")
     return {
       user_role : role,
       isLoggedIn : isLoggedIn,

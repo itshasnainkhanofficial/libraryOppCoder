@@ -22,19 +22,11 @@ export class HttpService {
   //general all https methods like get post 
   getMethod(url : string) : Observable<any>  {
 
-    return this.httpClient.get(this.baseUrl+url).pipe(
-      
-     catchError(this.errHandlerService.handleError) 
-     
-    )
+    return this.httpClient.get(this.baseUrl+url)
 }
   postMethod(url : string , data : any) : Observable<any>  {
 
-    return this.httpClient.post(this.baseUrl+url , data ).pipe(
-      
-     catchError(this.errHandlerService.handleError)
-     
-    )
+    return this.httpClient.post(this.baseUrl+url , data )
 }
 
 }
