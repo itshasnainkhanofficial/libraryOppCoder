@@ -44,7 +44,19 @@ import { ErrorIntercept } from './core/interceptors/error.interceptor';
     AlertModule.forRoot({maxMessages: 5, timeout: 2000, positionX: 'right' , positionY: "top"}),
     ModalModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(reducers, { metaReducers , 
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+        strictStateSerializability: true,
+        strictActionSerializability: true,
+        strictActionWithinNgZone: true,
+        strictActionTypeUniqueness: true,
+      },
+    }
+      
+      
+      ),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     FormsModule,
     HttpClientModule,
