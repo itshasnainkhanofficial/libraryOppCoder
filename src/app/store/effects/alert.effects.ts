@@ -88,7 +88,7 @@ export class AlertEffects {
         ofType(fromAuthAction.logout),
         tap(() => {
           
-          this.alertService.danger(`Logout Successfully`)
+          this.alertService.warning(`Logout Successfully`)
         })
       ),
     { dispatch: false }

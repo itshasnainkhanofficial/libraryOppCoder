@@ -20,8 +20,8 @@
               Admin Action
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
-              <li><a class="dropdown-item" href="#">User management</a></li>
-              <li><a class="dropdown-item" href="#">Book management</a></li>
+              <li><a class="dropdown-item" [routerLink]="['book/booklist']">View Book</a></li>
+              <li><a class="dropdown-item" [routerLink]="['book/addbook']">Add Book</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Assign role</a></li>
             </ul>
