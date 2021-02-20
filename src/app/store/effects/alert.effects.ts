@@ -60,8 +60,8 @@ export class AlertEffects {
       this.actions$.pipe(
         ofType(fromAuthAction.loginFailure ),
         tap((action) => {
-          console.log(action.err.error.text)
-          this.alertService.danger(`Unable to login ${action.err.error.text}`)
+          console.log(action.err)
+          this.alertService.danger(`Unable to login ${action.err}`)
         }
         
         )

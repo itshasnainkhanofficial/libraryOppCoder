@@ -39,6 +39,7 @@ export const reducer = createReducer(
     }
   }),
   on(AuthActions.loginFailure , (state , action) => {
+    console.log(action.err,"from reducer")
     return {
       ...state,
       user : {
